@@ -1,0 +1,12 @@
+__defs:
+    const_alloc 1b 10 ; const 0
+    const_alloc 1b 15 ; const 1
+    ; 'const_alloc size n' will create a constant allocation of the specified byte size (1b is 1 byte, 2b is 2 bytes, etc)
+    
+__start_instructions:
+    alloc_var "n" (alloc 4) (add (const 0) (const 1))
+    ; 'alloc_var name value' creates a named abstraction of the given value for future reference. 
+    ; 'alloc n' returns the starting memory address of the allocated memory
+    ; 'add c1 c2' will take two constant numbers and return the result of addition between them. The byte sizes must be the same.
+    
+; Note that instructions inside of parentheses represent expressions where the instruction's return value can be used in another instruction
